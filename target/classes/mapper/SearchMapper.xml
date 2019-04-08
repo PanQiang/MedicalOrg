@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.SearchMapper">
+  <resultMap id="BaseResultMap" type="com.dto.SearchResult">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="KEYWORD" jdbcType="VARCHAR" property="keyword" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="SUMMARY" jdbcType="VARCHAR" property="summary" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="medicalCount" jdbcType="DECIMAL" property="medicalCount" />
+    <result column="policyCount" jdbcType="DECIMAL" property="policyCount" />
+    <result column="downloadCount" jdbcType="DECIMAL" property="downloadCount" />
+  </resultMap>
+
+
+    <!-- 搜索医保热点 -->
+	<select id="searchMedicalNews" parameterType="com.dto.SearchResult" resultMap="BaseResultMap">
+		select id,title,summary,create_time from (
+            select id,title,summary,state,place,create_time
+            from news
+            where title like '%${keyword}%' or summary like '%${keyword}%'
+        )
+        where place = 1 and state =1
+	</select>
+
+
+    <!-- 搜索政务公开 -->
+	<select id="searchPolicyNews" parameterType="com.dto.SearchResult" resultMap="BaseResultMap">
+		select * from (
+            select id,title,summary,state,place,create_time
+            from news
+            where title like '%${keyword}%' or summary like '%${keyword}%'
+            )
+        where place = 2 and state =1
+	</select>
+
+    <!-- 搜索下载 -->
+    <select id="searchDownload" parameterType="com.dto.SearchResult" resultMap="BaseResultMap">
+		select * from (
+            select id,file_name as title,summary,create_time,state
+            from download
+            where file_name like '%${keyword}%' or summary like '%${keyword}%'
+        )
+        where state =1
+	</select>
+
+    <select id="searchCount" parameterType="com.dto.SearchResult" resultMap="BaseResultMap">
+        select * from(
+	      select count(id) as medicalCount from (
+		    select id,state,place
+		    from news
+		    where title like '%${keyword}%' or summary like '%${keyword}%'
+            )
+          where place = 1 and state =1
+        ),
+        (
+          select count(id) as policyCount from (
+            select id,state,place
+            from news
+            where title like '%${keyword}%' or summary like '%${keyword}%'
+          )
+          where place = 2 and state =1
+        ),
+        (
+          select count(id) as downloadCount from (
+            select id,state
+            from download
+            where file_name like '%${keyword}%' or summary like '%${keyword}%'
+        )
+          where state =1
+        )
+
+    </select>
+
+
+</mapper>

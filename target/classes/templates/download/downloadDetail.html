@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>下载专区--详情</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+<div th:include="common/top :: top"></div>
+<!--面包屑-->
+<div id="breadcrumb" class="d-none d-sm-block">
+    <nav aria-label="breadcrumb" class="container">
+        <div class="row">
+            <div class="col-12">
+                <ol class="col-12 breadcrumb">
+                    <li class="breadcrumb-item"><a href="/index.html">首页</a></li>
+                    <li class="breadcrumb-item"><a href="#">下载专区</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">更多</li>
+                </ol>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!--间隔线条-->
+<hr class="d-block d-sm-none interval">
+
+<div class="container">
+    <div class="row">
+        <!--下载详情-->
+        <div class="col-md-8 downloadDetail">
+            <div class="img">
+                <img id="img">
+            </div>
+            <div class="info">
+                <h2 id="fileName"></h2>
+                <ul>
+                    <li >下载量：<span id="loadCount"></span></li>
+                    <!--<li> 浏览量：<span id=""></li>-->
+                    <li> 创建时间：<span id="createTime"></span></li>
+                    <!--<li id="summary">
+
+                    </li>-->
+                </ul>
+                <div>
+                    <a id="url"><button  type="button" class="btn btn-primary">立即下载</button></a>
+                </div>
+            </div>
+            <div class="main">
+                <div class="commonTitle">
+                    <h3>文档介绍</h3>
+                </div>
+                <div class="content">
+                    <p id="summary">
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!--相关下载-->
+        <div class="col-md-4 downloadCorrelation">
+            <h3>相关下载</h3>
+            <ul id="list">
+            </ul>
+
+            <!--<div class="d-flex justify-content-center img">
+                <img src="./images/img8.png">
+            </div>-->
+        </div>
+    </div>
+</div>
+
+<div th:include="common/bottom :: bottom"></div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/download/downloadDetail.js"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>医保官网首页</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+
+<div th:include="common/top :: top"></div>
+<!--banner-->
+<div class="container banner">
+    <div class="row">
+        <div class="col-12">
+            <div class="swiper-container">
+                <div id="topBanner" class="swiper-wrapper">
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--医保动态-->
+<div class="container healthDynamic">
+    <div class="row">
+        <!--医保动态-->
+        <div class="col-sm-12 col-md-8 dynamic">
+            <div class="title d-flex justify-content-between">
+                <h3>医保动态</h3>
+                <a href="toMedicalNews">更多>></a>
+            </div>
+            <ul id="newsList1">
+
+            </ul>
+        </div>
+
+        <!--一周热点新闻-->
+        <div class="col-sm-12 col-md-4 hot">
+            <div class="title d-flex justify-content-center align-content-center">
+                <h3>一周热点新闻</h3>
+            </div>
+            <ul id="newsList2">
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--网上办事-->
+<div class="container onlineBusiness">
+    <div class="row">
+        <div class="col-12">
+            <div class="title d-flex justify-content-between flex-wrap">
+                <h3>网上办事</h3>
+                <div class="d-flex justify-content-between">
+                    <ul class="d-flex justify-content-between">
+                        <li>
+                            <a href="">预约办事</a>
+                        </li>
+                        <li>
+                            <a href="">信息查询</a>
+                        </li>
+                        <li>
+                            <a href="">服务指南</a>
+                        </li>
+                    </ul>
+                    <a href="">更多>></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <ul class="col-12 p-0 item">
+            <li class="col-6 col-md-3">
+                <div>
+                    <div>
+                        <img src="./images/icon_1.png">
+                        <img src="./images/icon_1-1.png">
+                    </div>
+                    <h6>机构职能查询</h6>
+                </div>
+            </li>
+            <li class="col-6 col-md-3">
+                <div>
+                    <div>
+                        <img src="./images/icon_1.png">
+                        <img src="./images/icon_1-1.png">
+                    </div>
+                    <h6>政策法规查询</h6>
+                </div>
+            </li>
+            <li class="col-6 col-md-3">
+                <div>
+                    <div>
+                        <img src="./images/icon_1.png">
+                        <img src="./images/icon_1-1.png">
+                    </div>
+                    <h6>规划计划查询</h6>
+                </div>
+            </li>
+            <li class="col-6 col-md-3">
+                <div>
+                    <div>
+                        <img src="./images/icon_1.png">
+                        <img src="./images/icon_1-1.png">
+                    </div>
+                    <h6>年度报告查询</h6>
+                </div>
+            </li>
+            <li class="col-6 col-md-3">
+                <div>
+                    <div>
+                        <img src="./images/icon_1.png">
+                        <img src="./images/icon_1-1.png">
+                    </div>
+                    <h6>资金信息查询</h6>
+                </div>
+            </li>
+            <li class="col-6 col-md-3">
+                <div>
+                    <div>
+                        <img src="./images/icon_1.png">
+                        <img src="./images/icon_1-1.png">
+                    </div>
+                    <h6>统计数据查询</h6>
+                </div>
+            </li>
+            <li class="col-6 col-md-3">
+                <div>
+                    <div>
+                        <img src="./images/icon_1.png">
+                        <img src="./images/icon_1-1.png">
+                    </div>
+                    <h6>重点领域信息查询</h6>
+                </div>
+            </li>
+            <li class="col-6 col-md-3">
+                <div>
+                    <div>
+                        <img src="./images/icon_1.png">
+                        <img src="./images/icon_1-1.png">
+                    </div>
+                    <h6>其他信息查询</h6>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--广告-->
+<div class="container generalize">
+    <div class="row">
+        <div class="col-12" id="midAd">
+
+        </div>
+    </div>
+</div>
+
+<!--政务公开-->
+<div class="container affairsOpen"  style="margin-top: 50px">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 imgNews">
+            <div class="swiper-container">
+                <div class="swiper-wrapper" id="policyBanner">
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 textNews">
+            <div class="d-flex justify-content-between">
+                <ul id="policyTips" class="d-flex justify-content-between">
+
+                </ul>
+                <a href="toPolicyNews">更多>></a>
+            </div>
+            <ul id="policyList">
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--下载专区-->
+<div class="container download">
+    <div class="row">
+        <div class="col-12">
+            <div class="title d-flex justify-content-between">
+                <h3>下载专区</h3>
+                <a href="toDownloadList">更多>></a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <ul class="d-flex flex-wrap item" id="downloadList">
+
+
+        </ul>
+    </div>
+</div>
+
+<!--友情链接-->
+<div class="container link">
+    <div class="row">
+        <div class="col-12">
+            <div class="swiper-container">
+                <div id="outerLinkList" class="swiper-wrapper">
+
+                </div>
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="common/bottom :: bottom"></div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/indexPage/indexPage.js"></script>
+</body>
+</html>

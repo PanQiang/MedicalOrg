@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.DownloadMapper">
+  <resultMap id="BaseResultMap" type="com.model.Download">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="FILE_NAME" jdbcType="VARCHAR" property="fileName" />
+    <result column="TYPE" jdbcType="DECIMAL" property="type" />
+    <result column="URL" jdbcType="VARCHAR" property="url" />
+    <result column="STATE" jdbcType="DECIMAL" property="state" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+	<result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+	<result column="LOAD_COUNT" jdbcType="DECIMAL" property="loadCount" />
+	<result column="SUMMARY" jdbcType="VARCHAR" property="summary" />
+	<result column="IMG" jdbcType="VARCHAR" property="img" />
+
+  </resultMap>
+
+	<select id="listOrderByloadCount" parameterType="com.dto.NewsParamDto" resultMap="BaseResultMap">
+		  SELECT
+			ID,
+			FILE_NAME,
+			LOAD_COUNT,
+			summary,
+			CREATE_TIME
+		  FROM
+			Download
+		  where state = 1
+		  and rownum &lt; 7
+		  order by LOAD_COUNT DESC
+
+	</select>
+
+  <!-- 根据ID获取数据 -->
+  <select id="getOneById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  		select * from Download where ID = #{id}
+  </select>
+
+	<update id="addLoadCount" parameterType="com.model.Download">
+		update download set LOAD_COUNT = #{loadCount} where id = #{id}
+	</update>
+
+	<select id="listDownloadType" resultType="com.model.DownloadType">
+		select ID,type_name as typeName,sort from downLoad_type order by sort ASC
+	</select>
+
+	<select id="getTypeNameByTypeId" parameterType="java.lang.Long" resultType="com.model.DownloadType">
+		select ID,type_name as typeName,sort from downLoad_type where id=#{id}
+	</select>
+
+	<select id="listMoreDownload" parameterType="com.model.Download" resultMap="BaseResultMap">
+		select ID,file_name,summary,create_time,load_count,img from download where type = #{type} and state = 1 and rownum &lt; 7
+	</select>
+
+	<select id="listByPage" parameterType="com.model.Download" resultMap="BaseResultMap">
+		select ID,file_name,summary,create_time,load_count from download where type = #{type} and state = 1
+	</select>
+
+
+
+</mapper>

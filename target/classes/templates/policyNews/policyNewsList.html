@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>政务公开</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+
+<div th:include="common/top :: top"></div>
+
+<!--面包屑-->
+<div id="breadcrumb" class="d-none d-sm-block">
+    <nav aria-label="breadcrumb" class="container">
+        <div class="row">
+            <div class="col-12">
+                <ol class="col-12 breadcrumb">
+                    <li class="breadcrumb-item"><a href="/index.html">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">政务公开</li>
+                </ol>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!--间隔线条-->
+<hr class="d-block d-sm-none interval">
+
+<div class="container">
+    <div class="row"  id="policyTips">
+        <!--政务公开 banner-->
+        <div class="col-md-6 governmentBanner">
+            <div class="swiper-container">
+                <div class="swiper-wrapper"  id="policyBanner">
+                    <!--<div class="swiper-slide">
+                        <a href="">
+                            <img src="./images/img2.png">
+                        </a>
+                        <h2 class="one-txt-cut">
+                            <a href="" class="one-txt-cut">
+                                今年《政府工作报告》，总理又做了哪些“加减法”？
+                            </a>
+                        </h2>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="">
+                            <img src="./images/img2.png">
+                        </a>
+                        <h2 class="one-txt-cut">
+                            <a href="">
+                                今年《政府工作报告》，总理又做了哪些“加减法”？
+                            </a>
+                        </h2>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="">
+                            <img src="./images/img2.png">
+                        </a>
+                        <h2 class="one-txt-cut">
+                            <a href="">
+                                今年《政府工作报告》，总理又做了哪些“加减法”？
+                            </a>
+                        </h2>
+                    </div>-->
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <!--通知通告-->
+        <div class="col-md-6">
+            <div class="commonTitle">
+                <h3>政策公开</h3>
+            </div>
+            <ul class="governmentCallboard" id="policy1">
+
+            </ul>
+        </div>
+    </div>
+
+    <!--政务公开 新闻模块-->
+   <!-- <div class="row governmentItem">
+        <div class="col-md-1">
+            <a href="" class="d-none d-md-block pc">
+                政务公开
+                <span>更多</span>
+            </a>
+
+            <a href="" class="d-block d-md-none mobile">
+                政务公开
+                <span>更多</span>
+            </a>
+        </div>
+        <div class="col-md-3 img">
+            <a href="">
+                <img src="./images/img6.png">
+            </a>
+            <h2>
+                <a href="">医保局政务公开惠民便民地图</a>
+            </h2>
+        </div>
+        <ul class="col-md-8 text">
+            <li class="d-flex">
+                <h2 class="col-9 p-0 one-txt-cut">
+                    <a href="">【湖北】湖北省副省长杨云彦强调构建医保监管新格局 增强人民群众获得感</a>
+                </h2>
+                <h6 class="col-3 p-0">2019-03-09</h6>
+            </li>
+            <li class="d-flex">
+                <h2 class="col-9 p-0 one-txt-cut">
+                    <a href="">【湖北】湖北省副省长杨云彦强调构建医保监管新格局 增强人民群众获得感</a>
+                </h2>
+                <h6 class="col-3 p-0">2019-03-09</h6>
+            </li>
+            <li class="d-flex">
+                <h2 class="col-9 p-0 one-txt-cut">
+                    <a href="">【湖北】湖北省副省长杨云彦强调构建医保监管新格局 增强人民群众获得感</a>
+                </h2>
+                <h6 class="col-3 p-0">2019-03-09</h6>
+            </li>
+            <li class="d-flex">
+                <h2 class="col-9 p-0 one-txt-cut">
+                    <a href="">【湖北】湖北省副省长杨云彦强调构建医保监管新格局 增强人民群众获得感</a>
+                </h2>
+                <h6 class="col-3 p-0">2019-03-09</h6>
+            </li>
+            <li class="d-flex">
+                <h2 class="col-9 p-0 one-txt-cut">
+                    <a href="">【湖北】湖北省副省长杨云彦强调构建医保监管新格局 增强人民群众获得感</a>
+                </h2>
+                <h6 class="col-3 p-0">2019-03-09</h6>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row governmentItem">
+        <div class="col-md-1">
+            <a href="" class="d-none d-md-block pc">
+                政务公开
+                <span>更多</span>
+            </a>
+
+            <a href="" class="d-block d-md-none mobile">
+                政务公开
+                <span>更多</span>
+            </a>
+        </div>
+        <div class="col-md-3 img">
+            <a href="">
+                <img src="./images/img6.png">
+            </a>
+            <h2>
+                <a href="">医保局政务公开惠民便民地图</a>
+            </h2>
+        </div>
+        <ul class="col-md-8 text">
+            <li class="d-flex">
+                <h2 class="col-9 p-0 one-txt-cut">
+                    <a href="">【湖北】湖北省副省长杨云彦强调构建医保监管新格局 增强人民群众获得感</a>
+                </h2>
+                <h6 class="col-3 p-0">2019-03-09</h6>
+            </li>
+            <li class="d-flex">
+                <h2 class="col-9 p-0 one-txt-cut">
+                    <a href="">【湖北】湖北省副省长杨云彦强调构建医保监管新格局 增强人民群众获得感</a>
+                </h2>
+                <h6 class="col-3 p-0">2019-03-09</h6>
+            </li>
+            <li class="d-flex">
+                <h2 class="col-9 p-0 one-txt-cut">
+                    <a href="">【湖北】湖北省副省长杨云彦强调构建医保监管新格局 增强人民群众获得感</a>
+                </h2>
+                <h6 class="col-3 p-0">2019-03-09</h6>
+            </li>
+            <li class="d-flex">
+                <h2 class="col-9 p-0 one-txt-cut">
+                    <a href="">【湖北】湖北省副省长杨云彦强调构建医保监管新格局 增强人民群众获得感</a>
+                </h2>
+                <h6 class="col-3 p-0">2019-03-09</h6>
+            </li>
+            <li class="d-flex">
+                <h2 class="col-9 p-0 one-txt-cut">
+                    <a href="">【湖北】湖北省副省长杨云彦强调构建医保监管新格局 增强人民群众获得感</a>
+                </h2>
+                <h6 class="col-3 p-0">2019-03-09</h6>
+            </li>
+        </ul>
+    </div>-->
+</div>
+<div th:include="common/bottom :: bottom"></div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/policyNews/policyNewsList.js"></script>
+</body>
+</html>

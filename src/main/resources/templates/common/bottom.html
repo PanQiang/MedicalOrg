@@ -1,0 +1,53 @@
+<div th:fragment="bottom">
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 footerNav">
+                <div>
+                    <a href="">关于我们</a>
+                    <span>|</span>
+                    <a href="">联系我们</a>
+                    <span>|</span>
+                    <a href="">法律声明</a>
+                    <span>|</span>
+                    <a href="">网站地图</a>
+                </div>
+                <p>
+                    主办单位：<span id="sponser"></span>
+                    <span id="copyRight"></span>
+                </p>
+                <p>
+                    网站标识码:<span id="identification"></span>
+                    <span>ICP备案号</span>
+                    <span id="icpCode"></span>
+                </p>
+            </div>
+            <div class="col-md-5 d-flex align-items-center img">
+                <img id="bottomImg1" class="col-4">
+                <img id="bottomImg2" class="col-4">
+                <img src="./images/img_footer_3.png" class="col-4">
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $.ajax({
+            async: false,
+            type: "POST",
+            data: null,
+            url: 'information/getInfomation',
+            dataType: 'json',
+            success: function (data) {
+                $("#sponser").html(data.sponser);
+                $("#copyright").html(data.copyright);
+                $("#identification").html(data.identification);
+                $("#icpCode").html(data.icpCode);
+                $("#bottomImg1").attr({'src': data.bottomImg1});
+                $("#bottomImg2").attr({'src': data.bottomImg2});
+
+            }
+        })
+    })
+</script>

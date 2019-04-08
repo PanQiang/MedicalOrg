@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>医保动态</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+
+<div th:include="common/top :: top"></div>
+
+<!--面包屑-->
+<div id="breadcrumb" class="d-none d-sm-block">
+    <nav aria-label="breadcrumb" class="container">
+        <div class="row">
+            <div class="col-12">
+                <ol class="col-12 breadcrumb">
+                    <li class="breadcrumb-item"><a href="/index.html">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">医保动态</li>
+                </ol>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!--间隔线条-->
+<hr class="d-block d-sm-none interval">
+
+<div class="container">
+    <div class="row">
+        <!--医保动态-->
+        <div class="col-md-9">
+            <div class="commonTitle">
+                <h3>医保动态</h3>
+                <a href="toTextNews">更多</a>
+            </div>
+            <ul class="healthList" id="medicalNews">
+
+            </ul>
+        </div>
+
+        <!--专题专栏-->
+        <div class="col-md-3 healthHomeSubject">
+            <h3>专题专栏</h3>
+            <ul id="themeNews">
+
+            </ul>
+            <div>
+                <a href="toThemeNews">更多</a>
+            </div>
+        </div>
+    </div>
+
+    <!--图片新闻-->
+    <div class="row">
+        <div class="col-12">
+            <div class="commonTitle">
+                <h3>图片新闻</h3>
+                <a href="toPicNews">更多</a>
+            </div>
+        </div>
+    </div>
+    <div class="row healthHomeImage" id="picNewsBigDiv">
+        <div style='cursor: pointer'  class="col-md-6">
+            <a class="firstPicNewsLink">
+                <img id="firstPicNewsImg">
+            </a>
+            <h2>
+                <a class="one-txt-cut firstPicNewsLink">
+                    <span style="color: white" id="firstPicNewsTitle"></span>
+                </a>
+            </h2>
+        </div>
+        <div class="col-md-6">
+            <ul class="row" id="picNews">
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div th:include="common/bottom :: bottom"></div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/news/medicalNewsList.js"></script>
+</body>
+</html>

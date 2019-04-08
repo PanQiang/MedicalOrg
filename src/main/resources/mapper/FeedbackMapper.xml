@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.FeedbackMapper">
+  <resultMap id="BaseResultMap" type="com.model.Feedback">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="TYPE" jdbcType="DECIMAL" property="type" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="userName" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="REPLY" jdbcType="VARCHAR" property="reply" />
+    <result column="STATE" jdbcType="DECIMAL" property="state" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+	<result column="REPLY_TIME" jdbcType="TIMESTAMP" property="replyTime" />
+  </resultMap>
+
+
+	<select id="getAll" parameterType="com.model.Feedback" resultMap="BaseResultMap">
+		  SELECT
+			id,title,create_time
+		  FROM
+			FEEDBACK
+		  <where>
+			  <if test="state!=null">
+				  and state = #{state}
+			  </if>
+		  </where>
+		 order by CREATE_TIME DESC
+	</select>
+
+	<select id="listWithoutPage" parameterType="com.model.Feedback" resultMap="BaseResultMap">
+		  SELECT
+			id,title,create_time
+		  FROM
+			FEEDBACK
+		  <where>
+			  <if test="state!=null">
+				  and state = #{state}
+			  </if>
+			  and rownum &lt; 11
+		  </where>
+		 order by CREATE_TIME DESC
+
+	</select>
+
+	<insert id="saveFeedback" parameterType="com.model.Feedback">
+		insert into FEEDBACK(id,username,phone,title,TYPE,content,create_time,state)
+		values(SEQ_FEEDBACK.nextval,#{userName},#{phone},#{title},#{type},#{content},#{createTime},#{state})
+	</insert>
+
+
+</mapper>

@@ -1,0 +1,71 @@
+
+.searchDiv{
+    width: 100%;
+    height: 100px;
+    margin-top: 20px;
+}
+
+.logoDiv{
+    float: left;
+    width: 20%;
+    height: 100%;
+}
+
+.search{
+    float: left;
+    width: 50%;
+    height: 40%;
+    margin-top: 30px;
+}
+
+.searchInput{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #5a6268;
+    border-radius: 5px;
+}
+
+.inputDiv{
+    width: 90%;
+    height: 100%;
+    float: left;
+}
+
+.searchLogo{
+    margin-top: 6px;
+    margin-left: 10px;
+    width: 8%;
+    height: 90%;
+    float: left;
+    cursor: pointer;
+}
+
+.iconDiv{
+    float: left;
+    width: 25%;
+    height: 60%;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.icon{
+    text-align: center;
+    margin-left: 30px;
+    float: left;
+    width: 20%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.iconImg{
+    margin-left: 30%;
+    width: 40%;
+    height: 40%;
+}
+
+.textDiv{
+    font-size: 14px;
+    width: 100%;
+    height: 60%;
+
+}

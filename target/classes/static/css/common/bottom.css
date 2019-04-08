@@ -1,0 +1,46 @@
+.styleDiv{
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    height: auto;
+}
+
+
+
+.bottomInfoBigDiv{
+    width: 100%;
+    height: 160px;
+}
+
+.leftInfo{
+    float: left;
+    width: 50%;
+    height: 100px;
+    margin-top: 40px;
+    margin-left: 12px;
+}
+
+.infoRow1{
+    width: 100%;
+    height: 25px;
+}
+
+.infoRow2{
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+}
+
+.orgLogo{
+    float: left;
+    width: 100px;
+    height: 100%;
+    margin-left: 200px;
+    margin-top: 30px;
+}
+.orgLogo2{
+    float: left;
+    width: 150px;
+    height: 100%;
+    margin-top: 5px;
+}

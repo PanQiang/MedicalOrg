@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.NewsMapper">
+  <resultMap id="BaseResultMap" type="com.model.News">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="TYPE" jdbcType="DECIMAL" property="type" />
+    <result column="PLACE" jdbcType="DECIMAL" property="place" />
+    <result column="IMG_URL" jdbcType="VARCHAR" property="imgUrl" />
+    <result column="STATE" jdbcType="DECIMAL" property="state" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+	<result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+	<result column="LIKE_COUNT" jdbcType="DECIMAL" property="likeCount" />
+	<result column="READ_COUNT" jdbcType="DECIMAL" property="readCount" />
+	<result column="SUMMARY" jdbcType="VARCHAR" property="summary" />
+	<result column="SEOTITLE" jdbcType="VARCHAR" property="seoTitle" />
+	<result column="SEOSUMMARY" jdbcType="VARCHAR" property="seoSummary" />
+	<result column="SEOKEYWORD" jdbcType="VARCHAR" property="seoKeyword" />
+
+  </resultMap>
+
+
+	<select id="getAll" parameterType="com.model.News" resultMap="BaseResultMap">
+		  SELECT
+			ID,
+			title,
+			CREATE_TIME,
+			IMG_URL
+		  FROM
+			NEWS
+		  where
+		  	state = 1
+			and type = #{type}
+			and	place =#{place}
+		 order by CREATE_TIME DESC
+	</select>
+  <!-- 根据ID获取数据 -->
+  <select id="getOneById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  		select * from NEWS where ID = #{id}
+  </select>
+
+  <!-- 根据ID获取上一条记录 -->
+  <select id="getPreNews" parameterType="com.model.News" resultMap="BaseResultMap">
+  		SELECT id,title FROM news where id =
+		(
+		  select beforeId from
+		  (SELECT id beforeId, lead(id,1) over (order by create_time DESC) as nowId
+	  		  from news
+	  		  where
+	  		  place = #{place}
+	  		  and state = 1
+	          <if test="type!=null">
+	            and type = #{type}
+              </if>
+	  	  )
+		  where beforeId-nowId>0 and nowId = #{id}
+		)
+  </select>
+
+  <!-- 根据ID获取下一条记录 -->
+  <select id="getNextNews" parameterType="com.model.News" resultMap="BaseResultMap">
+
+		SELECT id,title FROM news where id =
+			(
+			  select  afterId from
+			  (SELECT id nowId, lead(id,1) over (order by create_time DESC) as afterId
+			   from news
+			   where
+			   place = #{place}
+	  			and state = 1
+			   <if test="type!=null">
+				  and type = #{type}
+			   </if>
+			   )
+			  where nowId-afterId>0 and nowId = #{id}
+			)
+  </select>
+
+  <!-- 官网首页展示的两条最新新闻 -->
+  <select id="getIndexNews" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+
+		SELECT T2.* from(
+			SELECT T.*, rownum RN FROM(
+				SELECT * FROM (
+					SELECT id,img_url,title,summary,create_time
+					FROM news
+					where place = #{place}
+						and state = 1
+						and type=#{type}
+				)
+				ORDER BY create_time DESC
+			)T
+	  	) T2
+	  	WHERE RN BETWEEN 1 and 2
+  </select>
+
+	<!-- 官网首页一周热点新闻 -->
+	<select id="getIndexHotNews" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+	  SELECT T2.* from(
+			SELECT T.*, rownum RN FROM(
+				SELECT * FROM (
+					SELECT id,title,create_time
+					FROM news
+					where place = #{place}
+						and state = 1
+						and type=#{type}
+				)
+				ORDER BY create_time DESC
+			)T
+	  	) T2
+	  	WHERE RN BETWEEN 3 and 10
+  </select>
+
+
+	<!-- 医保动态页医保新闻 -->
+	<select id="getMoreMedicleNews" resultMap="BaseResultMap">
+		 SELECT T2.* from(
+			SELECT T.*, rownum RN FROM(
+				SELECT * FROM (
+					SELECT id,title,create_time
+					FROM news
+					where
+					    place = 1
+						and state = 1
+						and type =1
+				)
+				ORDER BY create_time DESC
+			)T
+	  	) T2
+	  	WHERE RN &lt; 16
+	</select>
+
+	<!-- 医保动态页专题报道 -->
+	<select id="getSpecialNews" resultMap="BaseResultMap">
+		 SELECT T2.* from(
+			SELECT T.*, rownum RN FROM(
+				SELECT * FROM (
+					SELECT id,title,img_url,create_time
+					FROM news
+					where
+					    place = 1
+						and state = 1
+						and type =3
+				)
+				ORDER BY create_time DESC
+			)T
+	  	) T2
+	  	WHERE RN &lt; 10
+	</select>
+
+	<!-- 医保动态页图片新闻 -->
+	<select id="getPictureNews" resultMap="BaseResultMap">
+		SELECT T2.* from(
+			SELECT T.*, rownum RN FROM(
+				SELECT * FROM (
+					SELECT id,title,img_url,create_time
+					FROM news
+					where
+					    place = 1
+						and state = 1
+						and type =2
+				)
+				ORDER BY create_time DESC
+			)T
+	  	) T2
+	  	WHERE RN &lt; 6
+	</select>
+
+
+	<select id="getOrgPolicy" parameterType="com.model.News" resultMap="BaseResultMap">
+		SELECT *
+		  FROM (
+		  SELECT ROWNUM AS rowno, a.id,a.TITLE,a.create_time,a.img_url,a.summary
+
+		  FROM news a
+
+		  WHERE
+		  state =1
+		  <if test="type!=null">
+			and type = #{type}
+		  </if>
+		  <if test="place!=null">
+			and place = #{place}
+		  </if>
+
+		  AND ROWNUM &lt; 8
+		  order by create_time DESC
+		  ) table_alias
+
+		  WHERE  table_alias.rowno &lt;8
+	</select>
+
+	<select id="getOrgPolicyType" parameterType="com.model.News" resultType="com.model.NewsType">
+		select id, type_name as typeName from news_type where place=#{place} AND ROWNUM &lt; 5 order by id ASC
+	</select>
+
+	<select id="getAllOrgPolicyWithoutType" resultMap="BaseResultMap">
+
+		SELECT
+		*
+		FROM
+		(
+			SELECT
+			RANK () OVER (PARTITION BY TYPE ORDER BY ID) ra,tb.*
+			FROM
+			(
+				SELECT ID, title, TYPE, SUMMARY, create_time
+				FROM
+				NEWS
+				where place = 2 and state =1
+				GROUP BY ID, title, TYPE, SUMMARY, create_time
+			) tb
+		) tbn
+		WHERE
+		ra &lt;= 5
+		ORDER BY ID DESC
+	</select>
+
+	<update id="addReadCount" parameterType="com.model.News">
+		update news set read_Count= #{readCount} where id = #{id}
+	</update>
+
+</mapper>

@@ -1,0 +1,52 @@
+<div th:fragment="top">
+<header class="container" id="header">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-between">
+            <div class="col-6 logo">
+                <img src="./images/logo.png" alt="logo">
+            </div>
+            <div class="d-none d-sm-flex search">
+                <div class="col-10 p-0 input">
+                    <input id="searchKeyword" type="text" placeholder="试着搜索一下……">
+                </div>
+                <div class="col-2 p-0 btn">
+                    <button onclick="search()" type="button"></button>
+                </div>
+            </div>
+            <div class="d-block d-sm-none navBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--导航-->
+<nav id="nav" class="d-none d-sm-block">
+    <div class="container">
+        <div class="row">
+            <ul class="col">
+                <li>
+                    <a href="index.html">首页</a>
+                </li>
+                <li>
+                    <a href="toMedicalNews">医保动态</a>
+                </li>
+                <li>
+                    <a href="">网上办事</a>
+                </li>
+                <li>
+                    <a href="toPolicyNews">政务公开</a>
+                </li>
+                <li>
+                    <a href="toDownloadList">下载专区</a>
+                </li>
+                <li>
+                    <a href="toFeedback">居民互动</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</div>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>医保动态--详情</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+
+<div th:include="common/top :: top"></div>
+
+<!--面包屑-->
+<div id="breadcrumb" class="d-none d-sm-block">
+    <nav aria-label="breadcrumb" class="container">
+        <div class="row">
+            <div class="col-12">
+                <ol class="col-12 breadcrumb">
+                    <li class="breadcrumb-item"><a href="/index.html">首页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">医保动态</li>
+                </ol>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!--间隔线条-->
+<hr class="d-block d-sm-none interval">
+
+<div class="container newsDetail">
+    <div class="row">
+        <h1 class="col-12 titleName" id="title"></h1>
+    </div>
+    <div class="row data">
+        <div class="col-12 d-flex justify-content-center align-items-center">
+            <!--<p>来源：<span>国家医保局</span></p>-->
+            <p>日期：<span id="time"></span></p>
+            <p>访问次数：<span id="readCount"></span></p>
+        </div>
+    </div>
+    <div class="row content">
+        <div class="col-12">
+            <p id="contentText"></p>
+        </div>
+    </div>
+    <div class="row share">
+        <div class="col-12">
+            <h6>分享到：</h6>
+            <div></div>
+        </div>
+    </div>
+    <div class="row prevNextPage">
+        <div class="col-12">
+
+             <input type="hidden" id="preId"/>
+            上一篇：<a style="cursor: pointer" onclick="preNewsDetail()" id="preNewsTitle"></a>
+        </div>
+        <div class="col-12">
+            <input type="hidden" id="nextId"/>
+            下一篇：<a style="cursor: pointer" onclick="nextNewsDetail()" id="nextNewsTitle"></a>
+        </div>
+    </div>
+</div>
+
+<div th:include="common/bottom :: bottom"></div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/news/newsDetail.js"></script>
+</body>
+</html>
