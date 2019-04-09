@@ -31,7 +31,7 @@ function getAll(start){
                     "<h2 class='col-9 one-txt-cut'>" +
                     "<a style='cursor: pointer' onclick='newsDetail("+list[i].id+",1,1)'>"+list[i].title+"</a>\n" +
                     "</h2>" +
-                    "<h6 class='col-3'>"+list[i].createTime+"</h6>" +
+                    "<h6 class='col-3'>"+list[i].createTime.substring(0,10)+"</h6>" +
                     "</li>";
             })
             $("#textNews").append(html)

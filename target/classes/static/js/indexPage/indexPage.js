@@ -233,7 +233,7 @@ function loadDownload(){
                             "</div>"+
                             "<div class='col-11'>"+
                                 "<h2 class='one-txt-cut'>"+
-                                    "<a href=''>"+list[i].fileName+"</a>"+
+                                    "<a style='cursor: pointer' onclick='downloadDetail("+list[i].id+")'>"+list[i].fileName+"</a>"+
                                 "</h2>"+
                                 "<p class='txt-cut'>"+list[i].summary+"</p>"+
                                 "<div>"+
@@ -249,6 +249,13 @@ function loadDownload(){
         }
     })
 }
+
+//下载详情
+function downloadDetail(id) {
+    window.location.href="toDownloadDetail?id="+id;
+
+}
+
 
 
 //加载外链列表
@@ -299,8 +306,5 @@ function loadBottomInfo(){
     })
 }
 
-/*//跳转到医保动态
-function toMedocalNews(){
-    window.location.href="toMedicalNews";
-}*/
+
 

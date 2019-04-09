@@ -25,11 +25,15 @@
             <div class="col-md-5 d-flex align-items-center img">
                 <img id="bottomImg1" class="col-4">
                 <img id="bottomImg2" class="col-4">
-                <img src="./images/img_footer_3.png" class="col-4">
+
+                <input id="latitude" type="hidden">
+                <input id="longitude" type="hidden">
+                <img style="cursor: pointer" onclick="toMap()" src="./images/img_footer_3.png" class="col-4">
             </div>
         </div>
     </div>
 </footer>
+
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript">
     $(function(){
@@ -47,8 +51,15 @@
                 $("#bottomImg1").attr({'src': data.bottomImg1});
                 $("#bottomImg2").attr({'src': data.bottomImg2});
 
+                $("#longitude").val(data.longitude);
+                $("#latitude").val(data.latitude);
+
             }
         })
     })
+
+    function toMap(){
+        window.location.href="toMap?longitude="+$("#longitude").val()+"&latitude="+$("#latitude").val();
+    }
 </script>
 </div>

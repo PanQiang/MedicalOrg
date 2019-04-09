@@ -192,7 +192,7 @@ function loadNewsList2(type){
                                             "<h2 class='col-9 p-0 one-txt-cut'>"+
                                             "<a style='cursor: pointer' onclick='newsDetail("+list[i].id+",2"+","+type+")'>"+list[i].title+"</a>"+
                                             "</h2>"+
-                                            "<h6 class='col-3 p-0'>"+list[i].createTime+"</h6>"+
+                                            "<h6 class='col-3 p-0'>"+list[i].createTime.substring(0,10)+"</h6>"+
                                             "</li>";
                                 }
                             })

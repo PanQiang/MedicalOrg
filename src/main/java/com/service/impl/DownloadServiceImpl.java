@@ -54,6 +54,7 @@ public class DownloadServiceImpl extends BaseService<Download> implements Downlo
 
 	@Override
 	public void addLoadCount(Download download){
+		download = downloadMapper.getOneById(download.getId());
 		if(download.getId()!=null&&download.getLoadCount()!=null){
 			download.setLoadCount(download.getLoadCount()+1);
 			downloadMapper.addLoadCount(download);

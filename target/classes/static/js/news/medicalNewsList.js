@@ -40,7 +40,7 @@ $(function(){
                        "<h2 class='col-9 one-txt-cut'>"+
                        "<a style='cursor: pointer' onclick='newsDetail("+list1[i].id+",1,1)'>"+list1[i].title+"</a>"+
                        "</h2>"+
-                       "<h6 class='col-3'>"+list1[i].createTime+"</h6>"+
+                       "<h6 class='col-3'>"+list1[i].createTime.substring(0,10)+"</h6>"+
                        "</li>";
             })
             $("#medicalNews").append(html1)

@@ -2,45 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mapper.InformationMapper">
 
-	<update id="updateInformation" parameterType="com.model.Information">
-		update Information
-		<set>
-			<if test="sponser!=null and sponser!=''">
-				SPONSER=#{sponser},
-			</if>
-			<if test="identification!=null and identification!=''">
-				IDENTIFICATION=#{identification},
-			</if>
-			<if test="copyright!=null and copyright!=''">
-				COPYRIGHT=#{copyright},
-			</if>
-			<if test="icpCode!=null and icpCode!=''">
-				ICPCODE=#{icpCode},
-			</if>
-			<if test="topLogo!=null and topLogo!=''">
-				TOPLOGO=#{topLogo},
-			</if>
-			<if test="bottomImg1!=null and bottomImg1!=''">
-				BOTTOMIMG1=#{bottomImg1},
-			</if>
-			<if test="bottomImg2!=null and bottomImg2!=''">
-				BOTTOMIMG2=#{bottomImg2},
-			</if>
-			<if test="aboutUs!=null and aboutUs!=''">
-				ABOUT_US=#{aboutUs},
-			</if>
-			<if test="callUs!=null and callUs!=''">
-				CALL_US=#{callUs},
-			</if>
-			<if test="legalStatement!=null and legalStatement!=''">
-				LEGAL_STATEMENT=#{legalStatement},
-			</if>
-		</set>
-		where id = #{id}
-	</update>
-
 	<select id="getInfomation" resultType="com.model.Information">
-		select id,sponser,identification,copyright,icpcode,toplogo,bottomimg1,bottomimg2
+		select id,sponser,identification,copyright,icpcode,toplogo,bottomimg1,bottomimg2,longitude,latitude
 		from Information
 		where rownum &lt; 2
 		order by id desc

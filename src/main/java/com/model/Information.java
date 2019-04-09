@@ -47,6 +47,13 @@ public class Information {
     @Column(name="LEGAL_STATEMENT")
     private String legalStatement;
 
+    @Column(name="LONGITUDE")
+    private String longitude;//经度
+
+    @Column(name="LATITUDE")//纬度
+    private String latitude;
+
+
     public Long getId() {
         return id;
     }
@@ -133,5 +140,21 @@ public class Information {
 
     public void setLegalStatement(String legalStatement) {
         this.legalStatement = legalStatement;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
     }
 }

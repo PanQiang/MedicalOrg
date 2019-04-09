@@ -45,22 +45,27 @@ function loadList(){
         success: function (data) {
             var list = data.list;
             var html="";
+            var index=1;
             $.each(list, function(i) {
+                if(index>5){
+                    return;
+                }
                 if(list[i].id!=oneId){
-                    html+="<li class='row'>"+
-                        "<div class='col-3'>"+
-                        "<img src='"+list[i].img+"'>"+
-                        "</div>"+
-                        "<div class='col-9'>"+
-                        "<h2>"+
-                        "<a href='' class='txt-cut'>"+list[i].fileName+"</a>"+
-                        "</h2>"+
-                        "<div class='d-flex justify-content-between align-items-center'>"+
-                        "<h6>"+list[i].createTime.substring(0,10)+"</h6>"+
-                        "<p>"+list[i].loadCount+"</p>"+
-                        "</div>"+
-                        "</div>"+
-                        "</li>";
+                    html+=  "<li class='row'>"+
+                                "<div class='col-3'>"+
+                                    "<img src='"+list[i].img+"'>"+
+                                "</div>"+
+                                "<div class='col-9'>"+
+                                    "<h2>"+
+                                        "<a style='cursor: pointer' onclick='downloadDetail("+list[i].id+")' class='txt-cut'>"+list[i].fileName+"</a>"+
+                                    "</h2>"+
+                                    "<div class='d-flex justify-content-between align-items-center'>"+
+                                        "<h6>"+list[i].createTime.substring(0,10)+"</h6>"+
+                                        "<p>"+list[i].loadCount+"</p>"+
+                                    "</div>"+
+                                "</div>"+
+                            "</li>";
+                    index+=1;
                 }
 
             })
@@ -82,10 +87,35 @@ function laodAdvertisement(){
         dataType: 'json',
         success: function (data) {
             var list = data.list;
+            var html="";
             if(list!=null){
-                $("#ad").attr("src",list[0].img);
 
+                html+="<a href='"+list[0].url+"'>"+
+                         "<div class='d-flex justify-content-center img'>"+
+                            "<img src='"+list[0].img+"'>"+
+                         "</div>"+
+                       "</a>";
+
+                $("#ad").append(html);
             }
         }
     })
+}
+
+function addLoadCount() {
+    $.ajax({
+        async: false,
+        type: "POST",
+        data:  {"id":oneId},
+        url: 'download/addLoadCount',
+        dataType: 'json',
+        success: function (data) {
+            window.location.reload();
+        }
+    })
+}
+
+//详情
+function downloadDetail(id) {
+    window.location.href="toDownloadDetail?id="+id;
 }

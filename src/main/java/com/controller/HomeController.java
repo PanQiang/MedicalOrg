@@ -106,6 +106,18 @@ public class HomeController {
         mv.addObject("type",type);
         return mv;
     }
+    /**
+     * 去地图页
+     * @return
+     */
+    @RequestMapping("/toMap")
+    public ModelAndView toMap(String longitude,String latitude){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("common/map");
+        mv.addObject("longitude",longitude);
+        mv.addObject("latitude",latitude);
+        return mv;
+    }
 
     /**
      * 跳转下载详情

@@ -48,7 +48,7 @@
                     </li>-->
                 </ul>
                 <div>
-                    <a id="url"><button  type="button" class="btn btn-primary">立即下载</button></a>
+                    <a id="url"><button onclick="addLoadCount()" type="button" class="btn btn-primary">立即下载</button></a>
                 </div>
             </div>
             <div class="main">
@@ -63,14 +63,10 @@
         </div>
 
         <!--相关下载-->
-        <div class="col-md-4 downloadCorrelation">
+        <div class="col-md-4 downloadCorrelation" id="ad">
             <h3>相关下载</h3>
             <ul id="list">
             </ul>
-
-            <div class="d-flex justify-content-center img">
-                <img id="ad">
-            </div>
         </div>
     </div>
 </div>
