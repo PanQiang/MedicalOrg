@@ -299,17 +299,8 @@ function loadBottomInfo(){
     })
 }
 
-//跳转到医保动态
+/*//跳转到医保动态
 function toMedocalNews(){
     window.location.href="toMedicalNews";
-}
+}*/
 
-
-//搜索
-function search(){
-    if($("#searchKeyword").val()!=null&&$("#searchKeyword").val()!=''){
-        window.location.href="toSearchPage?keyword="+$("#searchKeyword").val();
-    }else{
-        return;
-    }
-}

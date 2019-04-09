@@ -13,11 +13,6 @@ $(function(){
     place = paramList[2].split("&")[0];//得到place
     type = paramList[3];//得到type
 
-    console.log(paramList)
-    console.log(id)
-    console.log(place)
-    console.log(type)
-
     $.ajax({
         async: false,
         type: "POST",

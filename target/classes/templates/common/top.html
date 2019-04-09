@@ -7,7 +7,7 @@
             </div>
             <div class="d-none d-sm-flex search">
                 <div class="col-10 p-0 input">
-                    <input id="searchKeyword" type="text" placeholder="试着搜索一下……">
+                    <input id="searchKeyword" th:value="${keyword}" type="text" placeholder="试着搜索一下……">
                 </div>
                 <div class="col-2 p-0 btn">
                     <button onclick="search()" type="button"></button>
@@ -49,4 +49,16 @@
         </div>
     </div>
 </nav>
+
+<script type="text/javascript">
+//搜索
+function search(){
+    if($("#searchKeyword").val()!=null&&$("#searchKeyword").val()!=''){
+        window.location.href="toSearchPage?keyword="+$("#searchKeyword").val();
+    }else{
+        return;
+    }
+}
+</script>
+
 </div>

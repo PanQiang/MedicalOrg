@@ -12,10 +12,19 @@ $(function(){
             $("#medicalCount").html(data.medicalCount);
             $("#policyCount").html(data.policyCount);
             $("#downloadCount").html(data.downloadCount);
+
+            if(data.medicalCount>0){
+                loadSearResult(1);
+            }else if(data.policyCount>0){
+                loadSearResult(2);
+            }else if(data.downloadCount>0){
+                loadSearResult(3);
+            }
         }
     })
 
-    loadSearResult(1);
+
+
 })
 
 function loadSearResult(type){
