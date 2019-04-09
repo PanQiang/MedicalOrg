@@ -30,6 +30,7 @@ $(function(){
     })
 
     loadList();
+    laodAdvertisement();
 })
 
 //加载相关下载
@@ -67,6 +68,24 @@ function loadList(){
 
             $("#list").append(html);
 
+        }
+    })
+}
+
+//加载广告
+function laodAdvertisement(){
+    $.ajax({
+        async: false,
+        type: "POST",
+        data:  {"state":1,"block":4},
+        url: 'advertisement/indexAdvertisement',
+        dataType: 'json',
+        success: function (data) {
+            var list = data.list;
+            if(list!=null){
+                $("#ad").attr("src",list[0].img);
+
+            }
         }
     })
 }
