@@ -15,8 +15,8 @@
 
     <!-- 搜索医保热点 -->
 	<select id="searchMedicalNews" parameterType="com.dto.SearchResult" resultMap="BaseResultMap">
-		select id,title,summary,create_time from (
-            select id,title,summary,state,place,create_time
+		select * from (
+            select id,title,summary,state,place,create_time,type
             from news
             where title like '%${keyword}%' or summary like '%${keyword}%'
         )
@@ -27,7 +27,7 @@
     <!-- 搜索政务公开 -->
 	<select id="searchPolicyNews" parameterType="com.dto.SearchResult" resultMap="BaseResultMap">
 		select * from (
-            select id,title,summary,state,place,create_time
+            select id,title,summary,state,place,create_time,type
             from news
             where title like '%${keyword}%' or summary like '%${keyword}%'
             )

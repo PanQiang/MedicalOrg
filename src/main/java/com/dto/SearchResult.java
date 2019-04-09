@@ -17,6 +17,8 @@ public class SearchResult {
 
     private Integer type;
 
+    private Integer place;
+
     private Integer medicalCount;
     private Integer policyCount;
     private Integer downloadCount;
@@ -91,6 +93,14 @@ public class SearchResult {
 
     public void setDownloadCount(Integer downloadCount) {
         this.downloadCount = downloadCount;
+    }
+
+    public Integer getPlace() {
+        return place;
+    }
+
+    public void setPlace(Integer place) {
+        this.place = place;
     }
 }
 

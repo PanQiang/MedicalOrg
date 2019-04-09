@@ -54,7 +54,7 @@ public class SearchController {
         log.info("pageInfo.getTotal():"+pageInfo.getTotal());
         map.put("draw",draw);
         map.put("recordsTotal",pageInfo.getTotal());
-        map.put("recordsFiltered",pageInfo.getTotal());
+        map.put("pages",pageInfo.getPages());
         map.put("list", pageInfo.getList());
         return map;
     }

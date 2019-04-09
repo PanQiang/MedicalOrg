@@ -88,7 +88,7 @@ function toMore(type){
 }
 
 
-//新闻详情
+//详情
 function downloadDetail(id) {
     window.location.href="toDownloadDetail?id="+id;
 

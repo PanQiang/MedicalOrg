@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/swiper.min.css">
     <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/pageCSS/style.css">
 </head>
 <body>
 
@@ -38,13 +39,13 @@
             <h3>分类检索</h3>
             <ul class="row">
                 <li class="col-4 col-sm-12 one-txt-cut">
-                    <a style="cursor: pointer" onclick="loadSearResult(1)">医保动态 <span>（<span id="medicalCount"></span>）</span></a>
+                    <a style="cursor: pointer" onclick="loadSearResult(1,1)">医保动态 <span>（<span id="medicalCount"></span>）</span></a>
                 </li>
                 <li class="col-4 col-sm-12 one-txt-cut">
-                    <a style="cursor: pointer" onclick="loadSearResult(2)">政务公开 <span>（<span id="policyCount"></span>）</span></a>
+                    <a style="cursor: pointer" onclick="loadSearResult(2,1)">政务公开 <span>（<span id="policyCount"></span>）</span></a>
                 </li>
                 <li class="col-4 col-sm-12 one-txt-cut">
-                    <a style="cursor: pointer" onclick="loadSearResult(3)">下载专区 <span>（<span id="downloadCount"></span>）</span></a>
+                    <a style="cursor: pointer" onclick="loadSearResult(3,1)">下载专区 <span>（<span id="downloadCount"></span>）</span></a>
                 </li>
             </ul>
         </div>
@@ -57,6 +58,8 @@
             <ul id="resultList" class="searchResult">
 
             </ul>
+            <div id="pagination">
+            </div>
         </div>
     </div>
 </div>
@@ -66,6 +69,7 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/common.js"></script>
+<script src="js/jquery.paginate.js"></script>
 <script src="js/search/search.js"></script>
 </body>
 </html>

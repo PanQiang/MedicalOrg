@@ -8,7 +8,7 @@ function getAll(start){
     $.ajax({
         async: false,
         type: "POST",
-        data:  {"type":1,"place":1,"start":(start-1)*3+1,"length":3},
+        data:  {"type":1,"place":1,"start":(start-1)*15+1,"length":15},
         url: 'news',
         dataType: 'json',
         success: function (data) {
