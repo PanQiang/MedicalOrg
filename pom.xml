@@ -101,11 +101,11 @@
             <artifactId>druid</artifactId>
             <version>1.0.29</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
             <version>11.2.0.3</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>net.sourceforge.nekohtml</groupId>
             <artifactId>nekohtml</artifactId>
@@ -138,11 +138,11 @@
             <version>1.0.2</version>
         </dependency>
         <!--简单、好用且轻量级的海量Excel文件导入导出解决方案-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.wuwz</groupId>
             <artifactId>ExcelKit</artifactId>
             <version>2.0.5</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>com.hankcs</groupId>
             <artifactId>hanlp</artifactId>
