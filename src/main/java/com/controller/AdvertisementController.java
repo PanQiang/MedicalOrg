@@ -1,13 +1,11 @@
 package com.controller;
 
 
-import com.github.pagehelper.PageInfo;
 import com.model.Advertisement;
 import com.service.AdvertisementService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
