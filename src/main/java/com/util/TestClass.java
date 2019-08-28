@@ -8,6 +8,11 @@ import redis.clients.jedis.Jedis;
 public class TestClass {
 
 
+    public static void main(String[] args){
+        System.out.println("测试");
+    }
+
+
     @Test
     public void TestUser(){
 
