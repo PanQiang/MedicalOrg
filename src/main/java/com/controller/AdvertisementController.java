@@ -38,7 +38,7 @@ public class AdvertisementController {
         //测试sta提交代码5
         //测试sta提交代码6
         //测试sta提交代码7
-        //测试sta提交代码8888888
+        //测试sta提交代码8
 
         return map;
     }
