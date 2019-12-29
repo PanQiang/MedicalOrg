@@ -29,6 +29,10 @@ public class AdvertisementController {
         Map<String,Object> map = new HashMap<>();
         List<Advertisement> list = advertisementService.indexAdvertisement(advertisement);
         map.put("list", list);
+
+
+        //测试sta提交代码
+
         return map;
     }
 }
